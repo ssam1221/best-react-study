@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Expenses from './components/Expenses/Expenses'; 
+import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense.js/NewExpense';
 
 function App() {
 
@@ -18,11 +19,15 @@ function App() {
   },
   {
     id: `el5`, title: `Car Insurance`, amount: 444.76, date: new Date()
-  }]
-  return (
+  }];
 
+  const addExpenseHandler = (expense) => {
+    console.log(expense)
+  }
+
+  return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
